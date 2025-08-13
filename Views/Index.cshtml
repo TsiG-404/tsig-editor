@@ -1,0 +1,30 @@
+@model List<OnlineTextEditor.Models.Document>
+@{
+    ViewData["Title"] = "Documents";
+}
+
+<h1>Documents</h1>
+<a class="btn btn-primary" href="/Documents/Edit">New Document</a>
+<table class="table" style="background-color:##a6a6ad;">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Created</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var doc in Model)
+    {
+        <tr>
+            <td>@doc.Title</td>
+            <td>@doc.CreatedAt</td>
+            <td>
+                <a class="btn btn-sm btn-warning" href="/Documents/Edit/@doc.Id">Edit</a>
+                <a class="btn btn-sm btn-danger" href="/Documents/Delete/@doc.Id">Delete</a>
+                <a class="btn btn-sm btn-success" href="/Documents/Download/@doc.Id">Download</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

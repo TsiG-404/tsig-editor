@@ -1,0 +1,19 @@
+@model OnlineTextEditor.Models.Document
+@{
+    ViewData["Title"] = Model.Id == 0 ? "New Document" : "Edit Document";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div class="mb-3">
+        <label>Title</label>
+        <input class="form-control" name="Title" value="@Model.Title" required />
+    </div>
+    <div class="mb-3">
+        <label>Content</label>
+        <textarea class="form-control" name="Content" rows="10">@Model.Content</textarea>
+    </div>
+    <button class="btn btn-primary" type="submit">Save</button>
+    <a class="btn btn-secondary" href="/Documents">Cancel</a>
+</form>
